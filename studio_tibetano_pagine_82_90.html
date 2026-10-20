@@ -95,12 +95,46 @@
     }
 
     .header-inner {
-      max-width: 1240px;
+      max-width: 1440px;
       margin: 0 auto;
       padding: 14px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Hamburger Menu Button */
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 9px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .hamburger-btn:hover {
+      border-color: var(--gold-primary);
+      background: var(--bg-card-hover);
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-main);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .brand {
@@ -178,127 +212,174 @@
       letter-spacing: 0.05em;
     }
 
-    /* Container */
-    .container {
-      max-width: 1240px;
+    /* App Layout */
+    .app-layout {
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 32px 24px 80px 24px;
+      padding: 28px 24px 80px 24px;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
     }
 
-    /* Hero Banner */
-    .hero-banner {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%);
+    /* Vertical Sidebar Navigation (Desktop) */
+    .sidebar {
+      width: 290px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 86px;
+      max-height: calc(100vh - 106px);
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 18px;
-      padding: 36px 40px;
-      margin-bottom: 40px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-    }
-    [data-theme="light"] .hero-banner {
-      background: linear-gradient(135deg, #ffffff 0%, #f4eee2 100%);
-    }
-
-    .hero-banner::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-tagline {
-      font-family: var(--font-serif);
-      color: var(--gold-light);
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: 2.3rem;
-      color: var(--text-main);
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 14px;
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 860px;
-      line-height: 1.6;
-    }
-
-    .hero-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .meta-item {
+      padding: 20px 16px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      overflow-y: auto;
     }
 
-    .meta-label {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-    }
-
-    .meta-val {
-      font-size: 0.95rem;
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    /* Tabs Navigation */
-    .tabs-nav {
+    .sidebar-header {
       display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 32px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .sidebar-subtitle {
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
       border-bottom: 1px solid var(--border-color);
     }
 
-    .tab-btn {
+    .sidebar-close-btn {
+      display: none;
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 1;
       cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .sidebar-close-btn:hover {
+      color: var(--text-main);
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-grow: 1;
+    }
+
+    .sidebar-nav .tab-btn {
+      width: 100%;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-align: left;
+      white-space: normal;
+      transition: all 0.2s ease;
     }
-    .tab-btn:hover {
+
+    .sidebar-nav .tab-btn:hover {
       color: var(--text-main);
-      background: var(--bg-card);
+      background: var(--bg-subtle);
+      border-color: var(--border-color);
+      transform: translateX(3px);
     }
-    .tab-btn.active {
+
+    .sidebar-nav .tab-btn.active {
       color: var(--gold-light);
-      background: var(--bg-card);
-      border: 1px solid var(--border-accent);
-      box-shadow: 0 4px 12px var(--gold-glow);
+      background: var(--gold-glow);
+      border-color: var(--gold-primary);
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.12);
+      font-weight: 700;
+    }
+
+    .tab-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .tab-text {
+      line-height: 1.35;
+    }
+
+    .sidebar-card {
+      margin-top: 20px;
+      padding: 14px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+    }
+
+    .sc-label {
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .sc-quote {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .sc-cite {
+      display: block;
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    /* Main Content Area */
+    .main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Mobile Backdrop */
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
 
     /* Content Layout */
@@ -578,15 +659,64 @@
     }
 
     /* Responsive */
+    @media (max-width: 992px) {
+      .hamburger-btn {
+        display: flex;
+      }
+      .app-layout {
+        padding: 20px 16px 60px 16px;
+      }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 310px;
+        max-width: 85vw;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border-right: 1px solid var(--border-color);
+        border-top: none;
+        border-bottom: none;
+        border-left: none;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: var(--shadow-lg);
+      }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .sidebar-close-btn {
+        display: block;
+      }
+      .sidebar-backdrop {
+        display: block;
+      }
+      .sidebar-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .badge-today {
+        display: none;
+      }
+    }
+
     @media (max-width: 768px) {
       .hero-title {
-        font-size: 1.7rem;
+        font-size: 1.65rem;
       }
       .header-inner {
         padding: 12px 16px;
       }
+      .brand-text h1 {
+        font-size: 1rem;
+      }
+      .brand-text p {
+        font-size: 0.72rem;
+      }
       .hero-banner {
-        padding: 24px 20px;
+        padding: 24px 18px;
       }
       .grid-3 {
         grid-template-columns: 1fr;
@@ -599,11 +729,18 @@
   <!-- Header -->
   <header>
     <div class="header-inner">
-      <div class="brand">
-        <div class="brand-icon">7R</div>
-        <div class="brand-text">
-          <h1>Trattato dei Sette Raggi &bull; Vol. I</h1>
-          <p>Alice A. Bailey &bull; Il Maestro Tibetano D.K.</p>
+      <div class="header-left">
+        <button class="hamburger-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Apri menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="brand">
+          <div class="brand-icon">7R</div>
+          <div class="brand-text">
+            <h1>Trattato dei Sette Raggi &bull; Vol. I</h1>
+            <p>Alice A. Bailey &bull; Il Maestro Tibetano D.K.</p>
+          </div>
         </div>
       </div>
 
@@ -620,60 +757,89 @@
     </div>
   </header>
 
-  <div class="container">
+  <!-- App Layout -->
+  <div class="app-layout">
 
-    <!-- Hero Banner -->
-    <div class="hero-banner">
-      <div class="hero-tagline">Studio Approfondito &bull; Sezione 2 & 3</div>
-      <h2 class="hero-title">L'Attuale Piano di Raggio, i Tre Settori Mondiali e la Risoluzione delle Tre Aree di Dubbio</h2>
-      <p class="hero-desc">
-        Sintesi analitica e commento sistematico delle pagine 82-90. Questo celebre brano definisce la strategia della Gerarchia Spirituale post-1925, l'istituzione del <strong>Nuovo Gruppo dei Servitori del Mondo (NGSM)</strong>, la tripartizione dei raggi e le storiche profezie sull'energia atomica, l'occhio eterico e l'immortalità dell'anima.
-      </p>
+    <!-- Mobile Drawer Backdrop -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeMobileMenu()"></div>
 
-      <div class="hero-meta-grid">
-        <div class="meta-item">
-          <span class="meta-label">Tema Centrale</span>
-          <span class="meta-val">Piano Gerarchico & NGSM</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Raggi Guida Predominanti</span>
-          <span class="meta-val">1° Raggio (Potere) & 2° Raggio (Amore)</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Datazioni Chiave</span>
-          <span class="meta-val">1900, 1925, 1950, 2025</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Le 3 Grandi Risoluzioni</span>
-          <span class="meta-val">Idee, Dio, Immortalità</span>
+    <!-- Vertical Sidebar Navigation -->
+    <aside class="sidebar" id="sidebarNav">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Indice dei Temi</div>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" onclick="closeMobileMenu()" aria-label="Chiudi menu">&times;</button>
+      </div>
+
+      <div class="sidebar-subtitle">Lettura di Oggi: pp. 82-90</div>
+
+      <nav class="sidebar-nav">
+        <button class="tab-btn active" onclick="openTab(event, 'sintesi')">
+          <span class="tab-icon">📖</span>
+          <span class="tab-text">1. Sintesi & Mappa</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'settori')">
+          <span class="tab-icon">🌐</span>
+          <span class="tab-text">2. I Tre Settori & Raggi</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'dubbi')">
+          <span class="tab-icon">👁️</span>
+          <span class="tab-text">3. Le Tre Aree di Dubbio</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'servitori')">
+          <span class="tab-icon">⚡</span>
+          <span class="tab-text">4. Appello ai Servitori</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'cicli')">
+          <span class="tab-icon">⏳</span>
+          <span class="tab-text">5. La Legge dei Cicli</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'testo')">
+          <span class="tab-icon">📜</span>
+          <span class="tab-text">6. Testo Originale (82-90)</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'meditazione')">
+          <span class="tab-icon">🧘</span>
+          <span class="tab-text">7. Meditazione Quotidiana</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="sc-label">Precetto Chiave</div>
+        <p class="sc-quote">«Schieratevi con coloro che hanno eliminato la parola "anti" dal vocabolario e costruiscono con innocuità.»</p>
+        <span class="sc-cite">&mdash; p. 89</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-tagline">Studio Approfondito &bull; Sezione 2 & 3</div>
+        <h2 class="hero-title">L'Attuale Piano di Raggio, i Tre Settori Mondiali e la Risoluzione delle Tre Aree di Dubbio</h2>
+        <p class="hero-desc">
+          Sintesi analitica e commento sistematico delle pagine 82-90. Questo celebre brano definisce la strategia della Gerarchia Spirituale post-1925, l'istituzione del <strong>Nuovo Gruppo dei Servitori del Mondo (NGSM)</strong>, la tripartizione dei raggi e le storiche profezie sull'energia atomica, l'occhio eterico e l'immortalità dell'anima.
+        </p>
+
+        <div class="hero-meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Tema Centrale</span>
+            <span class="meta-val">Piano Gerarchico & NGSM</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Raggi Guida Predominanti</span>
+            <span class="meta-val">1° Raggio (Potere) & 2° Raggio (Amore)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Datazioni Chiave</span>
+            <span class="meta-val">1900, 1925, 1950, 2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Le 3 Grandi Risoluzioni</span>
+            <span class="meta-val">Idee, Dio, Immortalità</span>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- Navigation Tabs -->
-    <div class="tabs-nav">
-      <button class="tab-btn active" onclick="openTab(event, 'sintesi')">
-        <span>📖</span> 1. Sintesi Concettuale & Mappa
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'settori')">
-        <span>🌐</span> 2. I Tre Settori & Raggi (Tabella)
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'dubbi')">
-        <span>👁️</span> 3. Le Tre Aree di Dubbio Risolte
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'servitori')">
-        <span>⚡</span> 4. L'Appello ai Servitori & Etica
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'cicli')">
-        <span>⏳</span> 5. La Legge dei Cicli
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'testo')">
-        <span>📜</span> 6. Testo Originale Evidenziato (pp. 82-90)
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'meditazione')">
-        <span>🧘</span> 7. Domande per la Meditazione
-      </button>
-    </div>
 
     <!-- TAB 1: SINTESI CONCETTUALE -->
     <div id="sintesi" class="tab-content active">
@@ -1161,6 +1327,7 @@ Se il lettore si attiene al profilo generale del Piano solare ed elimina i parti
       </div>
     </div>
 
+    </main>
   </div>
 
   <!-- Footer -->
@@ -1170,12 +1337,34 @@ Se il lettore si attiene al profilo generale del Piano solare ed elimina i parti
   </footer>
 
   <script>
+    // Mobile Drawer Controls
+    function toggleMobileMenu() {
+      const sidebar = document.getElementById('sidebarNav');
+      if (sidebar.classList.contains('open')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+
+    function openMobileMenu() {
+      document.getElementById('sidebarNav').classList.add('open');
+      document.getElementById('sidebarBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      document.getElementById('sidebarNav').classList.remove('open');
+      document.getElementById('sidebarBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
     // Tab switching
     function openTab(evt, tabId) {
       document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
       });
-      document.querySelectorAll('.tab-btn').forEach(btn => {
+      document.querySelectorAll('.sidebar-nav .tab-btn').forEach(btn => {
         btn.classList.remove('active');
       });
 
@@ -1187,6 +1376,12 @@ Se il lettore si attiene al profilo generale del Piano solare ed elimina i parti
       const activeBtn = evt?.currentTarget || window.event?.currentTarget;
       if (activeBtn) {
         activeBtn.classList.add('active');
+      }
+
+      // If on mobile screen, close drawer and scroll to top
+      if (window.innerWidth <= 992) {
+        closeMobileMenu();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
 
@@ -1216,6 +1411,13 @@ Se il lettore si attiene al profilo generale del Piano solare ed elimina i parti
         document.body.setAttribute('data-theme', 'dark');
         themeIcon.textContent = '☀️';
         themeLabel.textContent = 'Luce';
+      }
+    });
+
+    // Close mobile menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMobileMenu();
       }
     });
   </script>
