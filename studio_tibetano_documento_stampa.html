@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Trattato dei Sette Raggi - Studio Approfondito pp. 82-90</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 16mm 15mm 16mm 15mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.6;
+      font-size: 10.5pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Cover / Frontespizio */
+    .print-cover {
+      border: 2px solid #b45309;
+      padding: 24mm 16mm 20mm 16mm;
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      margin-bottom: 20mm;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250mm;
+      background: linear-gradient(180deg, #fffcf7 0%, #ffffff 100%);
+    }
+
+    .cover-ornament {
+      font-size: 14pt;
+      color: #b45309;
+      letter-spacing: 0.2em;
+      margin-bottom: 8mm;
+    }
+
+    .cover-top h3 {
+      font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+      font-size: 13pt;
+      color: #b45309;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 4mm;
+      font-weight: 700;
+    }
+
+    .cover-top h1 {
+      font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+      font-size: 26pt;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 6mm;
+      font-weight: 800;
+    }
+
+    .cover-top .subtitle {
+      font-size: 13pt;
+      color: #475569;
+      max-width: 85%;
+      margin: 0 auto 12mm auto;
+      line-height: 1.5;
+    }
+
+    .cover-badge-box {
+      display: inline-block;
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 15mm;
+      text-transform: uppercase;
+    }
+
+    .cover-meta {
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 8mm 0;
+      margin: 0 auto;
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5mm;
+      text-align: left;
+    }
+
+    .meta-field {
+      display: flex;
+      flex-direction: column;
+    }
+    .meta-field span.lbl {
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      font-weight: 700;
+    }
+    .meta-field span.val {
+      font-size: 10.5pt;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .cover-bottom {
+      margin-top: 12mm;
+    }
+
+    .cover-quote {
+      font-style: italic;
+      color: #475569;
+      font-size: 10pt;
+      max-width: 80%;
+      margin: 0 auto 5mm auto;
+      line-height: 1.5;
+    }
+
+    .cover-date {
+      font-size: 9pt;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Page Layout & Sections */
+    .section {
+      margin-bottom: 12mm;
+      page-break-inside: auto;
+    }
+
+    .section-break {
+      page-break-before: always;
+    }
+
+    .section-title {
+      font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+      font-size: 15pt;
+      color: #0f172a;
+      border-bottom: 2px solid #b45309;
+      padding-bottom: 2mm;
+      margin-bottom: 5mm;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span.num {
+      color: #b45309;
+    }
+
+    p {
+      margin-bottom: 3.5mm;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    /* Cards & Boxes */
+    .concept-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid #b45309;
+      border-radius: 6px;
+      padding: 4mm 5mm;
+      margin-bottom: 4mm;
+      page-break-inside: avoid;
+    }
+
+    .concept-card h4 {
+      font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+      font-size: 11pt;
+      color: #0f172a;
+      margin-bottom: 1.5mm;
+      font-weight: 700;
+    }
+
+    .concept-card p {
+      font-size: 9.5pt;
+      color: #334155;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* Tables */
+    .print-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 4mm 0 6mm 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+
+    .print-table th {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 6px 8px;
+      font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+      color: #0f172a;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-align: left;
+    }
+
+    .print-table td {
+      border: 1px solid #cbd5e1;
+      padding: 6px 8px;
+      vertical-align: top;
+      line-height: 1.45;
+      color: #334155;
+    }
+
+    .print-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .ray-tag {
+      display: inline-block;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-bottom: 2px;
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+
+    /* Quote Box */
+    .quote-box {
+      background: #fffbeb;
+      border-left: 3px solid #f59e0b;
+      padding: 4mm 6mm;
+      border-radius: 0 6px 6px 0;
+      margin: 4mm 0 6mm 0;
+      font-style: italic;
+      color: #1e293b;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+
+    .quote-box cite {
+      display: block;
+      margin-top: 2mm;
+      font-size: 8pt;
+      font-style: normal;
+      color: #b45309;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    /* Formula highlight */
+    .formula-box {
+      background: #f1f5f9;
+      border: 1px dashed #64748b;
+      padding: 3mm 4mm;
+      border-radius: 6px;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 11pt;
+      color: #0f172a;
+      margin: 3mm 0;
+    }
+
+    /* Original Text Pages */
+    .orig-page-block {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 5mm;
+      margin-bottom: 5mm;
+      background: #ffffff;
+      page-break-inside: auto;
+    }
+
+    .orig-page-header {
+      font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+      font-size: 10pt;
+      font-weight: 700;
+      color: #b45309;
+      background: #fef3c7;
+      border-left: 3px solid #b45309;
+      padding: 3px 8px;
+      margin-bottom: 3mm;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .orig-page-body {
+      font-family: 'Georgia', serif;
+      font-size: 9.5pt;
+      line-height: 1.65;
+      color: #1e293b;
+      white-space: pre-wrap;
+    }
+
+    .hl {
+      background: #fef08a;
+      font-weight: 600;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    /* Reflection Checklist */
+    .reflection-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 4mm 5mm;
+      margin-bottom: 4mm;
+      background: #f8fafc;
+      page-break-inside: avoid;
+    }
+    .reflection-box h4 {
+      font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+      font-size: 10pt;
+      color: #b45309;
+      margin-bottom: 2mm;
+    }
+    .reflection-box p {
+      font-size: 9.5pt;
+      color: #334155;
+      margin-bottom: 4mm;
+    }
+    .reflection-lines {
+      border-bottom: 1px dashed #cbd5e1;
+      height: 6mm;
+      margin-bottom: 3mm;
+    }
+
+    /* Header/Footer for Print */
+    .header-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 2mm;
+      margin-top: 8mm;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== COPERTINA / FRONTESPIZIO ==================== -->
+  <div class="print-cover">
+    <div class="cover-top">
+      <div class="cover-ornament">&#9670; &#9670; &#9670;</div>
+      <h3>Trattato dei Sette Raggi &bull; Vol. I</h3>
+      <h1>Psicologia Esoterica I</h1>
+      <p class="subtitle">
+        Studio Approfondito e Guida di Lettura Critica:<br>
+        <strong>Pagine 82 &ndash; 90</strong>
+      </p>
+
+      <div class="cover-badge-box">
+        L'Attuale Piano Gerarchico &bull; Il Nuovo Gruppo dei Servitori &bull; Le Tre Aree di Dubbio
+      </div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="meta-field">
+        <span class="lbl">Autori</span>
+        <span class="val">Il Maestro Tibetano D.K. / Alice A. Bailey</span>
+      </div>
+      <div class="meta-field">
+        <span class="lbl">Raggi Predominanti</span>
+        <span class="val">1° (Volontà/Potere) & 2° (Amore/Saggezza)</span>
+      </div>
+      <div class="meta-field">
+        <span class="lbl">Datazioni Cardinali</span>
+        <span class="val">1900 (Formulazione), 1925 (Revisione), 1950 & 2025</span>
+      </div>
+      <div class="meta-field">
+        <span class="lbl">Destinazione</span>
+        <span class="val">Uso meditativo e studio personale</span>
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <p class="cover-quote">
+        «Soprattutto vi esorto a una vita più profonda e vi imploro di rafforzare il contatto con la vostra anima...<br>
+        Chi non è preparato sarà accecato dalla luce che ne scaturirà e verrà spazzato via dal vivente soffio di Dio.»
+      </p>
+      <div class="cover-date">
+        Studio del 20 Ottobre &bull; Documento ad alta leggibilità per la stampa
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SEZIONE 1: SINTESI & ARCHITETTURA ==================== -->
+  <div class="section">
+    <h2 class="section-title"><span class="num">1.</span> Architettura Dottrinale e Contesto Storico</h2>
+    
+    <p>
+      Il brano compreso fra pagina 82 e pagina 90 del <em>Trattato dei Sette Raggi (Vol. 1)</em> rappresenta uno dei momenti culminanti dell'insegnamento di Djwhal Khul: la dottrina occulta dei Raggi esce dalla sfera puramente teorica e si trasforma nel <strong>Piano operativo per l'evoluzione del pianeta</strong> nel corso del XX e XXI secolo.
+    </p>
+
+    <div class="concept-card">
+      <h4>I. Il Raggio Personale di Nascita vs Raggio Primario dell'Anima (p. 82)</h4>
+      <p>
+        Mentre il <strong>raggio primario (dell'Anima)</strong> rimane la forza dominante una volta stabilita l'individualizzazione, ogni incarnazione umana è segnata dal <strong>raggio del pianeta</strong> di nascita, retto dalla rispettiva Gerarchia planetaria. Questo raggio personale modella il carattere per una o più vite a seconda del karma. Ciascun individuo sperimenta ciclicamente tutti i sette raggi per acquisire un'esperienza completa e sintetica.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h4>II. I Conclavi Venticinquennali della Gerarchia: 1900 e 1925 (pp. 82-83)</h4>
+      <p>
+        Il Piano attuale fu delineato in forma sperimentale nel conclave del <strong>1900</strong> e ridiscusso dettagliatamente nel <strong>1925</strong> per rispondere alle scorie e alle distruzioni della Prima Guerra Mondiale. Si stabilì un <em>processo forzato</em> fino al <strong>1950</strong> per accelerare la coscienza dell'umanità e debellare le zone di dubbio spirituale.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h4>III. La Fondazione del Nuovo Gruppo dei Servitori del Mondo (NGSM)</h4>
+      <p>
+        Invece di lasciare sette gruppi separati di lavoratori secondo i rispettivi raggi, i Maestri unirono soggettivamente, intuitivamente e telepaticamente discepoli, aspiranti e operatori di buona volontà in un solo corpo intermedio: il <strong>NGSM</strong>, trasmettitore fra la Gerarchia interiore e i pensatori del mondo.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h4>IV. La Subordinazione Temporanea dei Raggi</h4>
+      <p>
+        Per fronteggiare l'emergenza mondiale, tutti gli operatori delle linee dal 3° al 7° raggio hanno temporaneamente subordinato i loro specifici interessi di raggio per cooperare sotto la spinta combinata del <strong>1° Raggio (Volontà/Potere)</strong> e del <strong>2° Raggio (Amore/Saggezza)</strong>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== SEZIONE 2: I TRE SETTORI ==================== -->
+  <div class="section section-break">
+    <h2 class="section-title"><span class="num">2.</span> La Tripartizione dell'Opera Gerarchica e i Raggi</h2>
+
+    <p>
+      Le sette energie di raggio sono state mobilitate e canalizzate nei tre grandi settori della vita sociale e culturale umana (pp. 83-85):
+    </p>
+
+    <table class="print-table">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Settore dell'Attività</th>
+          <th style="width: 25%;">Raggi Assegnati</th>
+          <th style="width: 28%;">Obiettivo Evolutivo</th>
+          <th style="width: 22%;">Scadenze & Rischi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <strong>1. Settore Politico</strong><br>
+            <span style="font-size: 8pt; color: #64748b;">Governo & Volontà</span>
+          </td>
+          <td>
+            <span class="ray-tag">1°: Volontà / Potere</span><br>
+            <span class="ray-tag">6°: Idealismo</span><br>
+            <span class="ray-tag">7°: Ordine Cerimoniale</span>
+          </td>
+          <td>
+            &bull; Sviluppo della <strong>Coscienza Internazionale</strong>.<br>
+            &bull; Dimostrazione della <strong>sintesi economica</strong> (spirito Croce Rossa esteso agli stati).<br>
+            &bull; Abbattimento dell'isolamento, dell'odio di razza e dell'egoismo di classe.
+          </td>
+          <td>
+            <strong>Federazione Mondiale delle Nazioni</strong> (forma esteriore entro il <strong>2025</strong>).<br>
+            <em>Rischio:</em> dittature e imposizione violenta.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>2. Settore Religioso</strong><br>
+            <span style="font-size: 8pt; color: #64748b;">Coscienza Spirituale</span>
+          </td>
+          <td>
+            <span class="ray-tag">2°: Amore / Saggezza</span><br>
+            <span class="ray-tag">4°: Armonia tramite Conflitto</span>
+          </td>
+          <td>
+            &bull; Comprensione universale della Realtà.<br>
+            &bull; <strong>Fratellanza delle Religioni</strong>: riconoscimento dell'unica sorgente di Vita.<br>
+            &bull; Liberazione delle masse dall'analfabetismo teologico e dal demagogismo.
+          </td>
+          <td>
+            <strong>Fede Mondiale Universale</strong>: struttura interiore definita prima della fine del XX secolo.<br>
+            Ruolo storico degli orientalisti europei.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>3. Settore Scientifico / Educativo</strong><br>
+            <span style="font-size: 8pt; color: #64748b;">Psicologia & Conoscenza</span>
+          </td>
+          <td>
+            <span class="ray-tag">3°: Intelligenza Attiva</span><br>
+            <span class="ray-tag">5°: Scienza / Conoscenza Concreta</span>
+          </td>
+          <td>
+            &bull; <strong>Sintesi tra tangibile e intangibile</strong>.<br>
+            &bull; Penetrazione nella quarta dimensione.<br>
+            &bull; Risveglio delle facoltà latenti e percezione eterica.
+          </td>
+          <td>
+            <strong>Mente a due direzioni:</strong> operare con uguale facilità verso le forme esteriori e verso lo Spirito.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="quote-box">
+      «Coloro che danno origine ai vari moti nazionali sono sensibili alle grandi idee riversate nelle loro menti dalle Menti che agiscono dietro le scene. Essi rispondono all'idea del superuomo, dell'uguaglianza, del bene comune... ma poiché difettano di sintesi interiore e non comprendono la Fratellanza interiore, quei principi sono grandemente deformati, applicati in modo egoistico e utilizzati in senso separativo.»
+      <cite>&mdash; Trattato dei Sette Raggi, Vol. 1, p. 84</cite>
+    </div>
+  </div>
+
+  <!-- ==================== SEZIONE 3: LE TRE AREE DI DUBBIO ==================== -->
+  <div class="section section-break">
+    <h2 class="section-title"><span class="num">3.</span> Le Tre Grandi Aree di Dubbio Risolte (pp. 86-88)</h2>
+
+    <p>
+      Il Maestro Tibetano anticipa il superamento definitivo di tre grandi incertezze umane attraverso il progresso congiunto della scienza, della politica e della religione:
+    </p>
+
+    <div class="concept-card">
+      <h4>1. Il Problema delle Idee (Politica e Governo)</h4>
+      <p>
+        <strong>La Crisi:</strong> La parola detta e la radio manipolano le masse incapaci di pensare con ideologie contrapposte (comunismo, nazismo, fascismo, democrazia, nazionalismo). I demagoghi sfruttano la sofferenza e gli odi razziali.<br>
+        <strong>La Risoluzione:</strong> L'umanità impara discriminazione mediante prova ed errore. Verranno educati con cura gli <strong>«Osservatori e Comunicatori»</strong>: individui la cui intuizione si è risvegliata sotto la guida dell'intelletto, liberi da orgoglio, partigianeria e ambizione, capaci di captare i puri archetipi ideativi e materializzarli in strutture sociali costruttive.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h4>2. Il Problema di Dio (Religione)</h4>
+      <p>
+        <strong>La Crisi:</strong> Il Dio confessionale, antropomorfo o nazionalistico genera settarismo, scetticismo e agnosticismo.<br>
+        <strong>La Risoluzione Scientifica:</strong> Dio sarà dimostrato e conosciuto come la <em>Divinità della vita essenziale, somma di tutte le energie</em> (immanente nella carne e trascendente).
+      </p>
+      <div class="formula-box">
+        ELETTRICITÀ + LUCE + VITA = DIO
+      </div>
+      <p>
+        Attraverso il risveglio dell'<strong>«Occhio Singolo»</strong> (Luca 11,34), l'essere umano vedrà la luce nella luce e riconoscerà Dio nella materia grazie alla comprensione esoterica dei fenomeni elettrici.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h4>3. Il Problema dell'Immortalità (Scienza)</h4>
+      <p>
+        <strong>La Risoluzione Sperimentale:</strong> L'immortalità passerà dal dogma della credenza alla <strong>certezza scientifica oggettiva</strong>. La continuazione cosciente dell'individuo oltre la morte fisica sarà provata tramite quattro vie:
+      </p>
+      <ul style="margin-left: 6mm; margin-top: 2mm; font-size: 9.5pt; color: #334155;">
+        <li><strong>Sviluppo dell'occhio fisico:</strong> percezione diretta del corpo eterico (il "doppio") dopo il distacco dal corpo denso.</li>
+        <li><strong>Risveglio del Terzo Occhio:</strong> visione di chi si è liberato anche dal corpo eterico.</li>
+        <li><strong>Nuove scoperte nella fotografia:</strong> cattura visiva dei veicoli sottili.</li>
+        <li><strong>Comunicazione via radio:</strong> contatti strumentali su vere basi scientifiche con l'aldilà.</li>
+      </ul>
+      <p style="margin-top: 3mm;">
+        <em>Nota Profetica:</em> <strong>«Lo sprigionamento della potenza racchiusa nell'atomo darà l'avvio a un'era rivoluzionaria»</strong> (p. 88), costringendo la scienza a lavorare con energie e matrici invisibili.
+      </p>
+    </div>
+
+    <div class="concept-card" style="border-left-color: #0284c7; background: #f0f9ff;">
+      <h4>L'Umanità come Centrale di Potere Divina (p. 88)</h4>
+      <p>
+        L'umanità è destinata ad agire come una centrale elettrica divina attraverso cui le energie superiori fluiscono per redimere i regni subumani (minerale, vegetale, animale), ponendo fine alla rovina e alla morte. Questo sarà possibile solo quando l'uomo avrà unificato in sé la personalità con l'Anima.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== SEZIONE 4: L'APPELLO DEL MAESTRO ==================== -->
+  <div class="section section-break">
+    <h2 class="section-title"><span class="num">4.</span> L'Appello del Maestro ai Servitori del Mondo (pp. 88-90)</h2>
+
+    <p>
+      Il Tibetano rivolge a tutti i discepoli e agli uomini di buona volontà un appello stringente e pratico, privo di sentimentalismo:
+    </p>
+
+    <div class="concept-card">
+      <h4>I Centri Planetari Focali (p. 89)</h4>
+      <p>
+        Le energie del NGSM operano tramite tre centri primari: <strong>Londra, New York e Ginevra</strong>, mentre a <strong>Darjeeling e Tokyo</strong> si concentrano le forze per il continente asiatico.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h4>Il Codice dell'Innocuità e l'Eliminazione della parola «ANTI» (p. 89)</h4>
+      <p>
+        &bull; <strong>Suggellare le labbra:</strong> non profferire parole di critica, disprezzo o odio di parte.<br>
+        &bull; <strong>Eliminare la parola «anti-» dal vocabolario:</strong> il discepolo non combatte, non attacca e non distrugge alcun gruppo. Il ciclo della distruzione è terminato: ora è il tempo dei costruttori che edificano con amore fraterno.<br>
+        &bull; Uscire da nazionalismi, partigianerie e settarismi religiosi.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h4>Il Dovere del Sacrificio Materiale: Tempo, Denaro e Pensiero (pp. 89-90)</h4>
+      <p>
+        Non basta una generica approvazione morale. Il Piano ha bisogno di mezzi fisici per manifestarsi:<br>
+        <em>«Rinunciate alle ore di svago perché altri possano servire il Piano; date il vostro denaro al limite delle vostre possibilità... Lavorate e date, amate e pensate, e aiutate i gruppi che costruiscono e non distruggono.»</em>
+      </p>
+    </div>
+
+    <div class="concept-card" style="border-left-color: #dc2626; background: #fef2f2;">
+      <h4>La Necessità del Contatto con l'Anima per Non Essere Accecati (p. 90)</h4>
+      <p>
+        Il Tibetano lancia un severo monito spirituale:<br>
+        L'imminente afflusso di Luce sulla Terra sarà di potenza inaudita. Chi non avrà costruito un solido e cosciente contatto con la propria Anima rimarrà <strong>abbagliato, sconcertato e travolto dal vivente soffio di Dio</strong>. Compito del discepolo è preparare se stesso e indicare la via ai cercatori disorientati.
+      </p>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 8mm;"><span class="num">5.</span> La Legge dei Cicli e le Apparenti Contraddizioni (p. 90)</h2>
+
+    <p>
+      Il principiante può essere confuso dal fatto che un Raggio sia descritto a volte come presente in manifestazione e altre volte come assente. La spiegazione risiede nella <strong>Legge della Periodicità</strong>:
+    </p>
+
+    <div class="concept-card">
+      <h4>Cicli Maggiori vs Cicli Minori</h4>
+      <p>
+        Attualmente il <strong>7° Raggio (Ordine Cerimoniale)</strong> sta sorgendo e il <strong>6° Raggio (Devozione)</strong> sta tramontando nel suo ciclo minore. Eppure il 6° Raggio governa un <strong>ciclo maggiore</strong> che continuerà a esercitare il suo influsso per altri <strong>21.000 anni</strong>!<br>
+        Al contempo, il 6° Raggio è il sesto sottoraggio del <strong>4° Raggio (Armonia tramite Conflitto)</strong>, il cui ciclo complessivo durerà per altri <strong>40.000 anni</strong>.<br>
+        <em>Regola per lo studente:</em> Non perdersi nel labirinto dei dettagli analitici, ma <strong>mantenere costante la visione sintetica del Piano solare</strong>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== SEZIONE 6: TESTO ORIGINALE EVIDENZIATO ==================== -->
+  <div class="section section-break">
+    <h2 class="section-title"><span class="num">6.</span> Testo Integrale delle Pagine 82 &ndash; 90</h2>
+    <p style="font-size: 9pt; color: #64748b; margin-bottom: 4mm;">
+      Trascrizione fedele dal <em>Trattato dei Sette Raggi (Vol. 1)</em> di Alice A. Bailey con evidenziazione in giallo dei passaggi cardinali.
+    </p>
+
+    <!-- Pagina 82 -->
+    <div class="orig-page-block">
+      <div class="orig-page-header">Pagina 82 &mdash; Il Raggio di Nascita e il Conclave del 1900/1925</div>
+      <div class="orig-page-body">dici deve essere quello del centro divino di coscienza; perciò quando ha luogo l’unione di cui abbiamo detto e l’entità è divenuta l’ego che si reincarna, <span class="hl">il raggio primario diviene e rimane la forza dominante.</span> Ma vi è ancora un’altra influenza di cui dobbiamo parlare. <span class="hl">È il raggio del pianeta sotto il cui influsso è nato ogni uomo. Si deve naturalmente comprendere che si tratta dell’influsso della Gerarchia, che regge quel pianeta. Questo raggio personale è un elemento importante nel carattere dell’uomo per la durata di una vita.</span> Dico una vita, ma potrebbero essere più vite, se le condizioni karmiche lo esigono... e probabilmente tutti noi siamo vissuti ripetutamente sotto l’influenza personale di tutti i sette raggi.
+
+2. L’attuale Piano di raggio e gli operatori
+L’azione del primo e del secondo raggio è soprattutto strumentale nel materializzare e manifestare il Piano di Dio per il mondo. A questo punto della trattazione sarebbe interessante considerare il Piano come sta elaborandosi attualmente, poiché quelle due forze di raggio, di potere-volontà e di amore-saggezza, oggi sono operanti in modo predominante. Tutti coloro che operano su altre linee di forza hanno temporaneamente subordinato i loro interessi e annullato i loro precedenti progetti, per far fronte alle necessità del mondo...
+
+Esso fu formulato sperimentalmente nel 1900, in occasione di una delle grandi riunioni venticinquennali della Gerarchia. Nel 1925, nella successiva grande assemblea fu discusso in modo più dettagliato e i membri decisero:
+Primo, che da parte dell’intera Gerarchia planetaria si sarebbe compiuto uno sforzo concorde fino al 1950, per espandere la coscienza dell’umanità e istituire una specie di processo forzato... Si decise di eliminare alcune zone di dubbio.
+In secondo luogo, si determinò di collegare in modo più stretto e soggettivo i discepoli anziani, gli aspiranti e gli operatori nel mondo. <span class="hl">A tal fine tutti i Maestri posero i Loro gruppi di discepoli in reciproco contatto soggettivo, intuitivo e talvolta telepatico. Nacque così il Nuovo Gruppo dei Servitori del Mondo.</span></div>
+    </div>
+
+    <!-- Pagina 83 -->
+    <div class="orig-page-block">
+      <div class="orig-page-header">Pagina 83 &mdash; Il Settore Politico e la Fratellanza delle Nazioni</div>
+      <div class="orig-page-body">I gruppi cristallizzati e settari non risposero, ma in ciascuno di essi, anche i più inerti, vi furono alcuni che risposero al nuovo impulso...
+Sommariamente si può dire che il Piano, nella mente degli organizzatori, fu suddiviso in tre settori:
+
+1. Politico
+Scopo dell’azione predisposta in questo campo furono lo sviluppo e lo stabilirsi di una <span class="hl">coscienza internazionale</span>. Ciò secondo la direttrice del potere o della volontà, del governo, ossia del primo raggio. I discepoli e gli aspiranti del campo organizzativo e la massa di idealisti furono inquadrati in questo compito e gli operatori di sesto e settimo raggio chiamati a cooperarvi.
+Si decise inoltre di dimostrare la necessità di una <span class="hl">sintesi economica</span>, come parte dell’avvicinamento reciproco delle nazioni, affinché lo spirito messo in evidenza da organizzazioni come la Croce Rossa potesse palesarsi a livello internazionale anche nei rapporti fra le nazioni...
+Si stabilì di dimostrare la necessità di instaurare uno spirito di dipendenza e reciprocità internazionale, affinché i vari paesi fossero costretti a rendersi conto politicamente che l’isolamento, la separatività e l’egoismo nazionale devono scomparire...
+L’obiettivo principale fu di instaurare uno stato mentale e non qualche impossibile utopia... <span class="hl">Istruzioni che dovevano giungere all’orecchio degli statisti dei vari paesi e per loro mezzo risvegliare lentamente e progressivamente le masse al vero significato della Fratellanza.</span></div>
+    </div>
+
+    <!-- Pagina 84 -->
+    <div class="orig-page-block">
+      <div class="orig-page-header">Pagina 84 &mdash; Disamina Geopolitica e il Settore Religioso</div>
+      <div class="orig-page-body">In Russia è la dittatura del proletariato... pure contiene grandi ideali: sopperire alle necessità di tutti, la bellezza del servizio reciproco, la divinità insita nel lavoro costruttivo.
+In Germania è la dittatura della supremazia razziale... pure, <span class="hl">l’ideale del superuomo è un vero ideale e deve essere presentato al mondo. Temporaneamente si è dimenticato che il superuomo è la meta di tutti e che asiatici, nordici, ebrei, gentili, americani, africani sono figli di un solo Padre, nutriti dalla stessa sorgente di Vita e salvati dal medesimo divino principio cristico.</span>
+In America si è affermata la dittatura degli affaristi organizzati...
+Coloro che danno origine ai vari moti nazionali sono sensibili alle grandi idee riversate dalle Menti dietro le scene, ma poiché difettano di sintesi interiore, quei principi sono grandemente deformati e applicati in modo egoistico e separativo.
+
+2. Religioso
+La meta in questo campo è di stabilire una comprensione universale della natura della realtà, e promuovere lo sviluppo della coscienza spirituale. Oggi nel mondo coloro che credono fondamentalmente nella fratellanza delle religioni sono molto numerosi...</div>
+    </div>
+
+    <!-- Pagina 85 -->
+    <div class="orig-page-block">
+      <div class="orig-page-header">Pagina 85 &mdash; Fede Mondiale, il 2025 e il Settore Scientifico</div>
+      <div class="orig-page-body">Il successo ottenuto nell’abbattere vecchie barriere è in gran parte dovuto agli eruditi orientalisti di Francia, Germania e Inghilterra... hanno collegato le verità spirituali di ogni tempo con la presentazione cristiana.
+<span class="hl">Presto la struttura interiore di una fede mondiale sarà talmente ben definita nella mente di migliaia di uomini, che quella esteriore finirà per apparire prima della fine del secolo.
+La struttura interiore della Federazione mondiale delle Nazioni sarà altrettanto ben organizzata e quella esteriore prenderà rapidamente forma entro il 2025.</span>
+
+3. Scientifico
+Coloro che operano in questo campo si sono prefissi la meta di espandere la coscienza dell’uomo al punto che si produca una sintesi fra il tangibile e l’intangibile...
+I sette gruppi d’azione sono dunque organizzati nel modo che segue:
+1. Settore della politica: Primo, sesto e settimo raggio.
+2. Settore della religione: Secondo e quarto raggio.
+3. Settore dell’educazione/scienza: Terzo e quinto raggio.</div>
+    </div>
+
+    <!-- Pagina 86 -->
+    <div class="orig-page-block">
+      <div class="orig-page-header">Pagina 86 &mdash; La Nuova Era e il Problema delle Idee</div>
+      <div class="orig-page-body">Inaugurerà una nuova era contrassegnata dall’attitudine alla sintesi di gruppo e alla cooperazione, e da nuove facoltà che riorienteranno la mente: <span class="hl">essa potrà volgersi all’esterno, al mondo delle forme, e all’interno, al mondo della sintesi e dello spirito.</span>
+
+IL PROBLEMA DELLE IDEE
+Il primo problema del governo del mondo è l’uso assennato delle idee. Entra qui in gioco il potere della parola... Nelle masse, tramite la radio, grandi idee vengono incessantemente ripetute fino a frastornare il pubblico: le teorie della dittatura, comunismo, nazismo, fascismo, marxismo e gli ideali democratici...
+In tutto questo gioco d'idee la razza sta sviluppando la capacità di pensare, di scegliere e di costruire...
+In seguito educheranno con gran cura i loro <span class="hl">Osservatori e Comunicatori</span>.</div>
+    </div>
+
+    <!-- Pagina 87 -->
+    <div class="orig-page-block">
+      <div class="orig-page-header">Pagina 87 &mdash; Gli Osservatori, il Problema di Dio e l'Immanenza</div>
+      <div class="orig-page-body">Questi saranno uomini e donne la cui intuizione si sarà risvegliata sotto il pressante impulso dell’intelletto... uomini di buona volontà, di grande apertura mentale, liberi da ambizioni e orgoglio, animati dall’amore per l’umanità. Uomini siffatti sono spirituali.
+
+IL PROBLEMA DI DIO
+Nel mondo della religione il fatto di Dio sarà dimostrato e avrà termine l’incertezza. Non sarà un Dio di una nazione o razza, né un Dio cristiano, indù o buddista... bensì la Divinità della vita essenziale, somma di tutte le energie.
+<span class="hl">«Quando il tuo occhio sarà singolo, tutto il tuo corpo sarà pieno di luce». In quella luce vedremo la luce, e dunque Dio. Le tre parole: elettricità, luce e vita esprimono la divinità e la loro sintesi è Dio.</span> Il secondo aspetto della luce sta per essere rivelato grazie alla giusta comprensione dei fenomeni elettrici.
+
+IL PROBLEMA DELL’IMMORTALITÀ
+La terza area di dubbio sarà eliminata fra non molto grazie all’indagine scientifica... il fatto della persistenza e dell’eternità dell’esistenza passerà dal campo del dubbio al regno della certezza.
+<span class="hl">Nell’occhio fisico umano si svilupperà una facoltà che svelerà il corpo eterico, il «doppio»... e gli uomini saranno visti in quel corpo dopo che il corpo fisico sia stato abbandonato.</span></div>
+    </div>
+
+    <!-- Pagina 88 -->
+    <div class="orig-page-block">
+      <div class="orig-page-header">Pagina 88 &mdash; Prove dell'Immortalità, l'Atomo e la Centrale di Potere</div>
+      <div class="orig-page-body">L’immortalità sarà comprovata anche da una scoperta nel campo della fotografia e tramite la radio... La morte perderà i suoi poteri e questa paura cesserà.
+<span class="hl">Lo sprigionamento della potenza racchiusa nell’atomo darà l’avvio ad un’era rivoluzionaria e la scienza opererà con energie e forme di vita finora sconosciute.</span>
+
+<span class="hl">L’umanità è designata ad agire come una centrale di potere attraverso la quale certe energie divine possano fluire nelle varie forme di vita subumana.</span> Questo porrà fine alle condizioni di rovina e di morte che oggi prevalgono ovunque. Gli uomini connetteranno le manifestazioni superiori della Vita a quelle inferiori quando avranno collegato in se stessi l’aspetto superiore e quello inferiore.</div>
+    </div>
+
+    <!-- Pagina 89 -->
+    <div class="orig-page-block">
+      <div class="orig-page-header">Pagina 89 &mdash; I Centri Planetari, l'Innocuità e il Dovere del Dono</div>
+      <div class="orig-page-body"><span class="hl">Londra, New York e Ginevra sono i tre centri della loro attività e a Darjeeling e a Tokio si stanno radunando le forze.</span>
+Esorto tutti i pensatori ad abbandonare il loro settarismo e a pensare in termini di un’unica famiglia, una sola vita, una sola umanità.
+<span class="hl">Vi chiedo di suggellare le labbra, che non profferiscano parole di odio o di critica... divulgate il culto dell’unità, dell’amore e dell’innocuità. Schieratevi con coloro che hanno eliminato la parola «anti» dal loro vocabolario. State con coloro che erigono il nuovo ordine che si basa sull’amore.</span>
+Date l’apporto del vostro pensiero e del vostro denaro... Rinunciate alle ore di svago perché altri possano servire il Piano; date il vostro denaro al limite delle vostre possibilità.</div>
+    </div>
+
+    <!-- Pagina 90 -->
+    <div class="orig-page-block">
+      <div class="orig-page-header">Pagina 90 &mdash; Contatto con l'Anima e la Legge dei Cicli</div>
+      <div class="orig-page-body">Non lasciatevi convincere che la distruzione è necessaria: il ciclo di distruzione è finito, ora i costruttori devono lavorare alacremente.
+<span class="hl">Soprattutto vi esorto a una vita più profonda e vi imploro di rafforzare il contatto con la vostra anima... Chi non è preparato sarà accecato dalla luce che ne scaturirà e verrà spazzato via dal vivente soffio di Dio.</span>
+
+La Legge dei Cicli e le apparenti contraddizioni
+In un dato periodo un certo raggio può essere manifesto, eppure nello stesso tempo il ciclo maggiore può essere retto da un raggio diverso. Ad esempio ora sta sorgendo il settimo raggio e il sesto tramonta; <span class="hl">eppure il sesto raggio regge un ciclo maggiore e il suo influsso non cesserà per altri 21.000 anni. Nello stesso tempo, il sesto raggio è il sesto sottoraggio del quarto raggio, che sarà operante per altri 40.000 anni.</span>
+Se il lettore si attiene al profilo generale del Piano solare ed elimina i particolari, potrà collaborarvi con la dovuta intelligenza.</div>
+    </div>
+  </div>
+
+  <!-- ==================== SEZIONE 7: DIARIO DI STUDIO ==================== -->
+  <div class="section section-break">
+    <h2 class="section-title"><span class="num">7.</span> Diario di Meditazione e Riflessione Personale</h2>
+
+    <p style="margin-bottom: 5mm;">
+      Usa questo spazio per annotare le intuizioni e le decisioni pratiche scaturite dallo studio di oggi:
+    </p>
+
+    <div class="reflection-box">
+      <h4>1. Il Precetto dell'Innocuità e l'Eliminazione dell'«Anti-»</h4>
+      <p>
+        In quale misura atteggiamenti critici o reazioni polemiche persistono nelle mie giornate? Quale azione costruttiva posso intraprendere oggi per sostituire la distruzione con l'amorevole edificazione?
+      </p>
+      <div class="reflection-lines"></div>
+      <div class="reflection-lines"></div>
+      <div class="reflection-lines"></div>
+    </div>
+
+    <div class="reflection-box">
+      <h4>2. La Mente Bifocale (Forma esteriore & Vita interiore)</h4>
+      <p>
+        Come posso mantenere viva la percezione del Piano e il contatto con l'Anima mentre sono immerso nelle responsabilità ordinarie della vita materiale?
+      </p>
+      <div class="reflection-lines"></div>
+      <div class="reflection-lines"></div>
+      <div class="reflection-lines"></div>
+    </div>
+
+    <div class="reflection-box">
+      <h4>3. Il Mio Dono Concreto al Piano (Tempo, Denaro, Pensiero)</h4>
+      <p>
+        Quale sacrificio cosciente posso compiere affinché chi serve attivamente il Nuovo Gruppo dei Servitori del Mondo possa procedere con maggiore celerità ed efficacia?
+      </p>
+      <div class="reflection-lines"></div>
+      <div class="reflection-lines"></div>
+      <div class="reflection-lines"></div>
+    </div>
+
+    <div class="header-footer">
+      <span>Trattato dei Sette Raggi &bull; Studio Pagine 82-90</span>
+      <span>«Quando il tuo occhio sarà singolo, tutto il tuo corpo sarà pieno di luce»</span>
+    </div>
+  </div>
+
+</body>
+</html>
