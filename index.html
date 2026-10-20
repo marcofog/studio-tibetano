@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trattato dei Sette Raggi (Vol. 1) | Studio Pagine 82-90</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #080c14;
+      --bg-card: #0f172a;
+      --bg-card-hover: #162038;
+      --bg-subtle: #1e293b;
+      --border-color: #24344d;
+      --border-accent: rgba(245, 158, 11, 0.35);
+      
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --gold-primary: #f59e0b;
+      --gold-light: #fbbf24;
+      --gold-glow: rgba(245, 158, 11, 0.15);
+      
+      --ray-1: #ef4444; /* Volontà / Potere */
+      --ray-2: #3b82f6; /* Amore / Saggezza */
+      --ray-3: #10b981; /* Intelligenza Attiva */
+      --ray-4: #eab308; /* Armonia tramite Conflitto */
+      --ray-5: #06b6d4; /* Scienza Concreta */
+      --ray-6: #ec4899; /* Devozione / Idealismo */
+      --ray-7: #a855f7; /* Ordine Cerimoniale */
+
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.4);
+      --shadow-lg: 0 16px 40px rgba(0,0,0,0.6);
+      --font-serif: 'Cinzel', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="light"] {
+      --bg-main: #fcfaf6;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8f4ec;
+      --bg-subtle: #f1eae0;
+      --border-color: #e2d7c5;
+      --border-accent: rgba(180, 83, 9, 0.4);
+      
+      --text-main: #1c1917;
+      --text-muted: #57534e;
+      --text-dim: #78716c;
+      
+      --gold-primary: #b45309;
+      --gold-light: #d97706;
+      --gold-glow: rgba(180, 83, 9, 0.12);
+      
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 36px rgba(0,0,0,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-size: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.04) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background-color: rgba(8, 12, 20, 0.85);
+      border-bottom: 1px solid var(--border-color);
+    }
+    [data-theme="light"] header {
+      background-color: rgba(252, 250, 246, 0.88);
+    }
+
+    .header-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold-primary), #ef4444);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      box-shadow: 0 0 15px var(--gold-glow);
+    }
+
+    .brand-text h1 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-action {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-action:hover {
+      border-color: var(--gold-primary);
+      background: var(--bg-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .badge-today {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 32px 24px 80px 24px;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 36px 40px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    [data-theme="light"] .hero-banner {
+      background: linear-gradient(135deg, #ffffff 0%, #f4eee2 100%);
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      color: var(--gold-light);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 2.3rem;
+      color: var(--text-main);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 860px;
+      line-height: 1.6;
+    }
+
+    .hero-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .meta-val {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Tabs Navigation */
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tab-btn:hover {
+      color: var(--text-main);
+      background: var(--bg-card);
+    }
+    .tab-btn.active {
+      color: var(--gold-light);
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      box-shadow: 0 4px 12px var(--gold-glow);
+    }
+
+    /* Content Layout */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease forwards;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Section Headers */
+    .section-head {
+      margin-bottom: 24px;
+    }
+    .section-head h2 {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Cards Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .card-body {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.65;
+    }
+
+    /* Highlight Quotation Box */
+    .quote-box {
+      background: rgba(245, 158, 11, 0.05);
+      border-left: 4px solid var(--gold-primary);
+      padding: 18px 24px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      font-style: italic;
+      color: var(--text-main);
+      position: relative;
+    }
+    .quote-box cite {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      font-style: normal;
+      color: var(--gold-light);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* Ray Badges */
+    .ray-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+    .ray-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    /* Matrix Table */
+    .matrix-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .matrix-table th {
+      background: var(--bg-subtle);
+      font-family: var(--font-serif);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .matrix-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      vertical-align: top;
+      color: var(--text-muted);
+    }
+
+    .matrix-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .matrix-table tr:hover td {
+      background: var(--bg-card-hover);
+    }
+
+    /* Key Concepts Grid */
+    .concept-item {
+      display: flex;
+      gap: 18px;
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+    }
+    .concept-item:hover {
+      border-color: var(--border-accent);
+      transform: translateX(4px);
+    }
+
+    .concept-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gold-glow);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: var(--font-serif);
+      flex-shrink: 0;
+    }
+
+    .concept-body h4 {
+      font-family: var(--font-serif);
+      color: var(--text-main);
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .concept-body p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    /* Original Text Viewer */
+    .orig-page-container {
+      margin-bottom: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .orig-page-header {
+      padding: 14px 20px;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .orig-page-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--gold-light);
+      font-size: 1rem;
+    }
+
+    .orig-page-content {
+      padding: 24px;
+      font-family: 'Georgia', serif;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-main);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .mark-point {
+      background: rgba(245, 158, 11, 0.2);
+      border-bottom: 2px solid var(--gold-primary);
+      padding: 2px 4px;
+      border-radius: 3px;
+      color: #fff;
+      font-weight: 500;
+    }
+    [data-theme="light"] .mark-point {
+      background: rgba(245, 158, 11, 0.25);
+      color: #78350f;
+    }
+
+    /* Accordion */
+    .accordion-header {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      color: var(--text-main);
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.7rem;
+      }
+      .header-inner {
+        padding: 12px 16px;
+      }
+      .hero-banner {
+        padding: 24px 20px;
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">7R</div>
+        <div class="brand-text">
+          <h1>Trattato dei Sette Raggi &bull; Vol. I</h1>
+          <p>Alice A. Bailey &bull; Il Maestro Tibetano D.K.</p>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <span class="badge-today">Lettura di Oggi: pp. 82-90</span>
+        <button class="btn-action" id="themeToggle" title="Cambia Tema (Luce/Ombra)">
+          <span id="themeIcon">☀️</span>
+          <span id="themeLabel">Luce</span>
+        </button>
+        <button class="btn-action" onclick="window.print()" title="Stampa o Salva PDF">
+          🖨️ Stampa
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+      <div class="hero-tagline">Studio Approfondito &bull; Sezione 2 & 3</div>
+      <h2 class="hero-title">L'Attuale Piano di Raggio, i Tre Settori Mondiali e la Risoluzione delle Tre Aree di Dubbio</h2>
+      <p class="hero-desc">
+        Sintesi analitica e commento sistematico delle pagine 82-90. Questo celebre brano definisce la strategia della Gerarchia Spirituale post-1925, l'istituzione del <strong>Nuovo Gruppo dei Servitori del Mondo (NGSM)</strong>, la tripartizione dei raggi e le storiche profezie sull'energia atomica, l'occhio eterico e l'immortalità dell'anima.
+      </p>
+
+      <div class="hero-meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Tema Centrale</span>
+          <span class="meta-val">Piano Gerarchico & NGSM</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Raggi Guida Predominanti</span>
+          <span class="meta-val">1° Raggio (Potere) & 2° Raggio (Amore)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Datazioni Chiave</span>
+          <span class="meta-val">1900, 1925, 1950, 2025</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Le 3 Grandi Risoluzioni</span>
+          <span class="meta-val">Idee, Dio, Immortalità</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="openTab(event, 'sintesi')">
+        <span>📖</span> 1. Sintesi Concettuale & Mappa
+      </button>
+      <button class="tab-btn" onclick="openTab(event, 'settori')">
+        <span>🌐</span> 2. I Tre Settori & Raggi (Tabella)
+      </button>
+      <button class="tab-btn" onclick="openTab(event, 'dubbi')">
+        <span>👁️</span> 3. Le Tre Aree di Dubbio Risolte
+      </button>
+      <button class="tab-btn" onclick="openTab(event, 'servitori')">
+        <span>⚡</span> 4. L'Appello ai Servitori & Etica
+      </button>
+      <button class="tab-btn" onclick="openTab(event, 'cicli')">
+        <span>⏳</span> 5. La Legge dei Cicli
+      </button>
+      <button class="tab-btn" onclick="openTab(event, 'testo')">
+        <span>📜</span> 6. Testo Originale Evidenziato (pp. 82-90)
+      </button>
+      <button class="tab-btn" onclick="openTab(event, 'meditazione')">
+        <span>🧘</span> 7. Domande per la Meditazione
+      </button>
+    </div>
+
+    <!-- TAB 1: SINTESI CONCETTUALE -->
+    <div id="sintesi" class="tab-content active">
+      <div class="section-head">
+        <h2>Architettura del Brano (Pagine 82-90)</h2>
+        <p>I cardini evolutivi e dottrinali esposti dal Maestro Tibetano per il nostro ciclo storico.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="card-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid #ef4444;">Fondamento Storico</span>
+          <h3 class="card-title">I Concili del 1900 e 1925</h3>
+          <p class="card-body">
+            Il Piano non è statico: fu formulato in via sperimentale nel conclave venticinquennale del <strong>1900</strong> e ricalibrato nel <strong>1925</strong> alla luce delle distruzioni della Prima Guerra Mondiale.<br><br>
+            Venne stabilito un <strong>"processo forzato"</strong> fino al 1950 per accelerare la coscienza dell'umanità e debellare le zone di dubbio spirituale.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="card-badge" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid #3b82f6;">Strumento Organico</span>
+          <h3 class="card-title">Il Nuovo Gruppo dei Servitori del Mondo</h3>
+          <p class="card-body">
+            Invece di sette gruppi isolati, i Maestri uniscono i discepoli in un corpo intermedio soggettivo e telepatico: il <strong>NGSM</strong>.<br><br>
+            Funge da trasmettitore e interprete tra la <strong>Gerarchia interiore</strong> e i pensatori del mondo, operando in ogni paese senza formalismi esteriori né barriere di dogma.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="card-badge" style="background: rgba(168, 85, 247, 0.15); color: #a855f7; border: 1px solid #a855f7;">Traguardi Temporali</span>
+          <h3 class="card-title">Le Scadenze Profetiche: 1950 & 2025</h3>
+          <p class="card-body">
+            Il Tibetano delinea con precisione il calendario evolutivo:<br>
+            &bull; <strong>Fine del XX secolo:</strong> Definizione interiore della <em>Religione Mondiale</em>.<br>
+            &bull; <strong>Entro il 2025:</strong> Manifestazione esteriore e consolidamento della <em>Federazione Mondiale delle Nazioni</em>.<br>
+            &bull; <strong>Era Atomica:</strong> Lo sprigionamento dell'energia atomica cambierà radicalmente la visione scientifica della materia.
+          </p>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        «Nel 1925 si determinò di collegare in modo più stretto e soggettivo i discepoli anziani, gli aspiranti e gli operatori nel mondo... Nacque così il Nuovo Gruppo dei Servitori del Mondo. In tal modo ogni gruppo animato da qualsiasi desiderio di servire fu trascinato in una corrente di stimolazione spirituale... I gruppi cristallizzati e settari non risposero, ma in ciascuno di essi, anche i più inerti, vi furono alcuni che risposero al nuovo impulso.»
+        <cite>&mdash; Trattato dei Sette Raggi, Vol. 1, p. 82-83</cite>
+      </div>
+
+      <!-- I 4 Pilastri Chiave -->
+      <div style="margin-top: 36px;">
+        <h3 style="font-family: var(--font-serif); margin-bottom: 20px; color: var(--gold-light);">I 4 Pilastri Esoterici delle Pagine 82-90</h3>
+        
+        <div class="concept-item">
+          <div class="concept-num">I</div>
+          <div class="concept-body">
+            <h4>Il Raggio Personale di Nascita vs Raggio Primario dell'Anima</h4>
+            <p>A pagina 82 si chiarisce che oltre al raggio egoico dominante, l'uomo nasce sotto l'influsso del raggio del pianeta governato dalla relativa Gerarchia. Questo raggio personale modella il carattere per una o più vite in funzione del karma. Ciascuno di noi è transitato ciclicamente sotto l'influsso personale di tutti i sette raggi per acquisire una completezza d'esperienza.</p>
+          </div>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-num">II</div>
+          <div class="concept-body">
+            <h4>La Subordinazione Temporanea dei Raggi</h4>
+            <p>Per affrontare l'emergenza postbellica e la crisi della civiltà, tutti i lavoratori delle linee dal 3° al 7° raggio hanno provvisoriamente subordinato i propri specifici interessi di raggio per cooperare sotto la spinta coordinata del <strong>1° Raggio (Volontà/Potere)</strong> e del <strong>2° Raggio (Amore/Saggezza)</strong>, che oggi operano in modo predominante.</p>
+          </div>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-num">III</div>
+          <div class="concept-body">
+            <h4>La Deformazione Geopolitica delle Idee Divine</h4>
+            <p>Alle pagine 83-84, il Tibetano compie una straordinaria disamina geopolitica: le grandi idee riversate dai piani interiori (bene comune, superuomo, perequazione economica) vengono captate dai leader ma brutalmente deformate dall'egoismo separativo:
+            la dittatura del proletariato in Russia, la distorsione razziale in Germania (dove si dimentica che il "superuomo" è la meta cristica di tutte le razze), e la dittatura del potere finanziario/commerciale in America.</p>
+          </div>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-num">IV</div>
+          <div class="concept-body">
+            <h4>L'Umanità come Centrale di Potere Divina</h4>
+            <p>Il fine occulto dell'evoluzione: l'Umanità è destinata a fungere da <em>"centrale di potere"</em> attraverso cui le energie divine della Gerarchia fluiscono verso i regni subumani (animale, vegetale, minerale) per riscattarli dalla rovina e dalla morte. Ma l'uomo potrà collegare il regno sovrumano a quello subumano solo quando avrà prima unificato in se stesso la personalità e l'Anima.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: I TRE SETTORI E I RAGGI -->
+    <div id="settori" class="tab-content">
+      <div class="section-head">
+        <h2>La Tripartizione Operativa del Piano Gerarchico</h2>
+        <p>Invece di sette canali frammentati, la Gerarchia ha raggruppato le forze in 3 divisioni coordinate (pp. 83-85).</p>
+      </div>
+
+      <div class="matrix-wrapper">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Settore dell'Attività</th>
+              <th>Raggi Mobilitati</th>
+              <th>Obiettivo del Settore</th>
+              <th>Manifestazione Esterna & Sfide</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong style="color: var(--gold-light); font-size: 1.05rem;">1. Settore Politico</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">Governo & Volontà</span>
+              </td>
+              <td>
+                <span class="ray-tag"><span class="ray-dot" style="background: var(--ray-1)"></span> 1° Raggio: Volontà / Potere</span><br>
+                <span class="ray-tag" style="margin-top: 4px;"><span class="ray-dot" style="background: var(--ray-6)"></span> 6° Raggio: Devozione / Idealismo</span><br>
+                <span class="ray-tag" style="margin-top: 4px;"><span class="ray-dot" style="background: var(--ray-7)"></span> 7° Raggio: Ordine Cerimoniale</span>
+              </td>
+              <td>
+                &bull; Sviluppo della <strong>Coscienza Internazionale</strong>.<br>
+                &bull; Dimostrazione della necessità di una <strong>sintesi economica mondiale</strong>.<br>
+                &bull; Abbattimento dell'isolamento, dell'egoismo nazionale e degli antagonismi di razza e di classe.
+              </td>
+              <td>
+                Federazione delle Nazioni (prevista entro il <strong>2025</strong>).<br>
+                <em>Pericolo:</em> caduta in utopie autoritarie o imposizioni violente (come il fascismo o il comunismo bolscevico dell'epoca).
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong style="color: var(--gold-light); font-size: 1.05rem;">2. Settore Religioso</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">Coscienza Spirituale</span>
+              </td>
+              <td>
+                <span class="ray-tag"><span class="ray-dot" style="background: var(--ray-2)"></span> 2° Raggio: Amore / Saggezza</span><br>
+                <span class="ray-tag" style="margin-top: 4px;"><span class="ray-dot" style="background: var(--ray-4)"></span> 4° Raggio: Armonia tramite Conflitto</span>
+              </td>
+              <td>
+                &bull; Stabilire la <strong>comprensione universale della Realtà</strong>.<br>
+                &bull; Fratellanza delle Religioni: riconoscere l'unica radice divina in tutte le fedi.<br>
+                &bull; Liberare le masse dal giogo teologico demagogico e settario.
+              </td>
+              <td>
+                Ruolo storico degli orientalisti occidentali che hanno unito l'Oriente al Cristianesimo.<br>
+                La struttura interiore della <strong>Fede Mondiale</strong> sarà chiara nelle menti entro la fine del XX secolo.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong style="color: var(--gold-light); font-size: 1.05rem;">3. Settore Scientifico / Educativo</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">Psicologia & Conoscenza</span>
+              </td>
+              <td>
+                <span class="ray-tag"><span class="ray-dot" style="background: var(--ray-3)"></span> 3° Raggio: Intelligenza Attiva</span><br>
+                <span class="ray-tag" style="margin-top: 4px;"><span class="ray-dot" style="background: var(--ray-5)"></span> 5° Raggio: Conoscenza Concreta / Scienza</span>
+              </td>
+              <td>
+                &bull; <strong>Sintesi tra tangibile e intangibile</strong>.<br>
+                &bull; Espansione della mente per penetrare nella <em>quarta dimensione</em>.<br>
+                &bull; Risveglio delle facoltà latenti e sviluppo dell'estensione dei sensi umani.
+              </td>
+              <td>
+                Riorientamento della mente umana: capace di operare sia verso il mondo delle forme esteriori, sia verso il mondo interiore dello Spirito e della Sintesi.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top: 24px; border-left: 4px solid #38bdf8;">
+        <h4 style="font-family: var(--font-serif); color: #38bdf8; margin-bottom: 8px;">La Mente a Doppia Direzione</h4>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          «La mente potrà infatti volgersi con uguale facilità in due direzioni: all’esterno, al mondo delle forme manifeste, e all’interno, al mondo della sintesi, dell’unità e dello spirito. L’atteggiamento verso la vita muterà e ne sarà testimonianza il miglioramento del senso dei valori, poiché la vita assumerà un significato finora ignoto...» (p. 86)
+        </p>
+      </div>
+    </div>
+
+    <!-- TAB 3: LE TRE AREE DI DUBBIO -->
+    <div id="dubbi" class="tab-content">
+      <div class="section-head">
+        <h2>Le Tre Grandi Aree di Dubbio da Risolvere</h2>
+        <p>Il Tibetano illustra come nei prossimi anni la scienza, la politica e la religione risolveranno definitivamente tre ancestrali incertezze umane (pp. 86-88).</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Dubbio 1 -->
+        <div class="card" style="border-top: 4px solid var(--ray-1);">
+          <span class="card-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">Settore Politica / Governo</span>
+          <h3 class="card-title">1. Il Problema delle Idee</h3>
+          <p class="card-body">
+            <strong>La Crisi:</strong> La parola detta e scritta (specialmente la radio e la propaganda) frastorna le masse incapaci di pensare con ideologie contrastanti (comunismo, nazismo, fascismo, democrazia, nazionalismo). I demagoghi cavalcano le sofferenze e gli odi razziali.<br><br>
+            <strong>La Risoluzione:</strong> Attraverso la prova e l'errore, l'umanità sviluppa il discernimento. Verranno formati gli <strong>«Osservatori e Comunicatori»</strong>: uomini e donne intuitivi, privi di orgoglio e separatività, che sanno contattare i puri archetipi ideativi interiori e tradurli in strutture sociali eque.
+          </p>
+        </div>
+
+        <!-- Dubbio 2 -->
+        <div class="card" style="border-top: 4px solid var(--ray-2);">
+          <span class="card-badge" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">Settore Religione</span>
+          <h3 class="card-title">2. Il Problema di Dio</h3>
+          <p class="card-body">
+            <strong>La Crisi:</strong> Dio concepito come entità teologica antropomorfa, esclusiva di una singola razza, nazione o chiesa, che genera settarismo, scetticismo e agnosticismo diffuso.<br><br>
+            <strong>La Risoluzione Scientifica:</strong> Dio sarà riconosciuto come la Vita Essenziale immanente e trascendente, somma di tutte le energie.<br>
+            La formula occulta fondamentale:<br>
+            <span style="font-family: var(--font-mono); color: var(--gold-light); display: block; margin: 8px 0; font-weight: bold; background: var(--bg-subtle); padding: 8px; border-radius: 6px;">ELETTRICITÀ + LUCE + VITA = DIO</span>
+            Lo sviluppo dell'<strong>«Occhio Singolo»</strong> permetterà di scorgere Dio nella materia e oltre la carne («se il tuo occhio sarà singolo, tutto il tuo corpo sarà pieno di luce»).
+          </p>
+        </div>
+
+        <!-- Dubbio 3 -->
+        <div class="card" style="border-top: 4px solid var(--ray-5);">
+          <span class="card-badge" style="background: rgba(6, 182, 212, 0.15); color: #06b6d4;">Settore Scienza</span>
+          <h3 class="card-title">3. Il Problema dell'Immortalità</h3>
+          <p class="card-body">
+            <strong>La Crisi:</strong> Il terrore della morte fisica e il dubbio scettico sulla continuazione cosciente dell'individuo post-mortem.<br><br>
+            <strong>La Risoluzione Sperimentale:</strong> L'immortalità passerà dal dogma della fede alla <strong>certezza scientifica</strong> attraverso 4 vie di prova:
+            <br>&bull; <em>Visione Eterica:</em> sviluppo fisiologico dell'occhio che vedrà il "doppio eterico".
+            <br>&bull; <em>Terzo Occhio:</em> visione del disincarnato liberato anche dal corpo eterico.
+            <br>&bull; <em>Fotografia Eterica:</em> documentazione visiva dell'anima.
+            <br>&bull; <em>Comunicazione Radio:</em> contatti strumentali con l'aldilà.
+          </p>
+        </div>
+      </div>
+
+      <div class="quote-box" style="border-left-color: #06b6d4;">
+        «Nessuno dubiterà che dopo l’abbandono del corpo fisico l’uomo possa continuare ad essere un’entità vivente e cosciente... La morte perderà i suoi poteri e questa paura cesserà. La scienza penetrerà più profondamente nel regno dell’intangibile e lavorerà con mezzi e strumenti finora sconosciuti. Lo sprigionamento della potenza racchiusa nell’atomo darà l’avvio ad un’era rivoluzionaria...»
+        <cite>&mdash; Trattato dei Sette Raggi, Vol. 1, p. 88</cite>
+      </div>
+
+      <div class="card" style="margin-top: 24px; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.3);">
+        <h4 style="color: #10b981; font-family: var(--font-serif); margin-bottom: 8px;">Nota Profetica: L'Energia Atomica</h4>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Scrivendo negli anni '30, Alice Bailey e il Maestro Tibetano annunciano con precisione stupefacente <strong>«lo sprigionamento della potenza racchiusa nell'atomo»</strong> come catalizzatore supremo che costringerà la scienza a scartare i vecchi dogmi meccanicistici e ad abbracciare la visione dell'Universo come pura matrice energetica vivente.
+        </p>
+      </div>
+    </div>
+
+    <!-- TAB 4: L'APPELLO DEL TIBETANO -->
+    <div id="servitori" class="tab-content">
+      <div class="section-head">
+        <h2>L'Appello del Maestro Tibetano e il Codice di Condotta</h2>
+        <p>Istruzioni pratiche e severi precetti etici per tutti i discepoli e gli uomini di buona volontà (pp. 88-90).</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h4 style="font-family: var(--font-serif); color: var(--gold-light); margin-bottom: 10px;">I Tre Centri Planetari Focali</h4>
+          <p class="card-body">
+            L'energia del NGSM si canalizza in tre centri focali primari di attività:<br>
+            &bull; <strong>Londra</strong><br>
+            &bull; <strong>New York</strong><br>
+            &bull; <strong>Ginevra</strong><br>
+            Mentre a <strong>Darjeeling</strong> e a <strong>Tokyo</strong> si radunano le riserve di forza per l'Oriente.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4 style="font-family: var(--font-serif); color: var(--gold-light); margin-bottom: 10px;">La Suprema Regola dell'Innocuità</h4>
+          <p class="card-body">
+            <strong>«Suggellare le labbra che non profferiscano parole di odio o di critica.»</strong><br><br>
+            Eliminare la parola <strong>«ANTI»</strong> dal proprio vocabolario. Rifiutare ogni militanza aggressiva o demolitrice: il discepolo costruisce con amore fraterno e non combatte contro nulla.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4 style="font-family: var(--font-serif); color: var(--gold-light); margin-bottom: 10px;">Il Dovere del Sacrificio Materiale</h4>
+          <p class="card-body">
+            Non basta un'adesione sentimentale o devozionale: occorre dare concretamente <strong>tempo, denaro e pensiero</strong> al Piano.<br><br>
+            «Molti di voi danno poco o nulla del loro tempo e denaro... date al limite delle vostre possibilità affinché l'era dell'amore e della luce sia inaugurata più rapidamente.» (p. 89)
+          </p>
+        </div>
+      </div>
+
+      <div class="concept-item" style="border-left: 4px solid var(--gold-primary); margin-top: 24px;">
+        <div class="concept-num">★</div>
+        <div class="concept-body">
+          <h4>La Necessità del Contatto con l'Anima per Non Essere Accecati</h4>
+          <p style="font-size: 0.98rem; color: var(--text-main);">
+            Il Tibetano conclude l'appello con un monito perentorio (p. 90):<br>
+            <em>«Soprattutto vi esorto a una vita più profonda e vi imploro, per amore dei vostri simili, di rafforzare il contatto con la vostra anima... Chi non è preparato agli avvenimenti che stanno per sopraggiungere sarà accecato dalla luce che ne scaturirà e sconcertato dalla meraviglia che sarà rivelata; verrà spazzato via dal vivente soffio di Dio, ed è a voi che guardiamo perché lo prepariate a quell’evento.»</em>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: LA LEGGE DEI CICLI -->
+    <div id="cicli" class="tab-content">
+      <div class="section-head">
+        <h2>La Legge dei Cicli e le Apparenti Contraddizioni</h2>
+        <p>La chiave ermeneutica per comprendere il flusso delle energie di raggio nella storia (p. 90).</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 24px;">
+        <h3 class="card-title" style="color: var(--gold-light);">Perché i Raggi sembrano entrare e uscire contemporaneamente?</h3>
+        <p class="card-body" style="font-size: 1rem;">
+          A pagina 90, il Tibetano avverte lo studente di non cadere in confusione di fronte a quelle che sembrano discrepanze nella trattazione. La spiegazione risiede nella <strong>Legge della Periodicità e dei Cicli</strong>:
+        </p>
+        <ul style="margin: 16px 0 16px 24px; color: var(--text-muted); line-height: 1.8;">
+          <li><strong>Cicli Maggiori vs Cicli Minori:</strong> Un raggio può trovarsi al tramonto del suo ciclo minore pur reggendo contemporaneamente un ciclo maggiore di molte migliaia di anni.</li>
+          <li><strong>Il Caso del 6° e 7° Raggio:</strong> Attualmente il <em>7° Raggio (Ordine Cerimoniale)</em> sta sorgendo nel mondo, mentre il <em>6° Raggio (Devozione/Idealismo)</em> tramonta nel suo ciclo minore. Eppure il 6° Raggio governa un ciclo maggiore che continuerà a esercitare il suo influsso per altri <strong>21.000 anni</strong>!</li>
+          <li><strong>Il Sottoraggio del 4° Raggio:</strong> Il 6° Raggio agisce anche come sesto sottoraggio del <em>4° Raggio (Armonia tramite Conflitto)</em>, il cui macro-ciclo durerà per altri <strong>40.000 anni</strong>.</li>
+        </ul>
+        <p class="card-body" style="font-size: 1rem; color: var(--text-main); font-weight: 500;">
+          <strong>Regola per lo Studente:</strong> Non perdersi nei minuziosi dettagli analitici che frastornano il principiante, ma focalizzarsi costantemente sulle <em>grandi proposizioni sintetiche del Piano Solare</em>.
+        </p>
+      </div>
+    </div>
+
+    <!-- TAB 6: TESTO ORIGINALE EVIDENZIATO -->
+    <div id="testo" class="tab-content">
+      <div class="section-head">
+        <h2>Testo Originale Integrale a Fronte (Pagine 82-90)</h2>
+        <p>I passaggi salienti e cardinali del testo originale di Alice Bailey sono stati evidenziati in oro per facilitare la rilettura meditativa.</p>
+      </div>
+
+      <!-- Pagina 82 -->
+      <div class="orig-page-container">
+        <div class="orig-page-header" onclick="togglePage('p82')">
+          <span class="orig-page-title">Pagina 82 &mdash; Il Raggio Personale di Nascita e il Conclave del 1900/1925</span>
+          <span>▼</span>
+        </div>
+        <div id="p82" class="orig-page-content">82 
+dici deve essere quello del centro divino di coscienza; perciò quando ha luogo l’unione di cui abbiamo detto e l’entità è divenuta l’ego che si reincarna, <span class="mark-point">il raggio primario diviene e rimane la forza dominante.</span> Ma vi è ancora un’altra influenza di cui dobbiamo parlare. <span class="mark-point">È il raggio del pianeta sotto il cui influsso è nato ogni uomo. Si deve naturalmente comprendere che si tratta dell’influsso della Gerarchia, che regge quel pianeta. Questo raggio personale è un elemento importante nel carattere dell’uomo per la durata di una vita.</span> Dico una vita, ma potrebbero essere più vite, se le condizioni karmiche lo esigono... e probabilmente tutti noi siamo vissuti ripetutamente sotto l’influenza personale di tutti i sette raggi.
+
+<span class="mark-point">2. L’attuale Piano di raggio e gli operatori</span>
+L’azione del primo e del secondo raggio è soprattutto strumentale nel materializzare e manifestare il Piano di Dio per il mondo. A questo punto della trattazione sarebbe interessante considerare il Piano come sta elaborandosi attualmente, poiché quelle due forze di raggio, di potere-volontà e di amore-saggezza, oggi sono operanti in modo predominante. Tutti coloro che operano su altre linee di forza hanno temporaneamente subordinato i loro interessi e annullato i loro precedenti progetti, per far fronte alle necessità del mondo...
+
+Esso fu formulato sperimentalmente nel 1900, in occasione di una delle grandi riunioni venticinquennali della Gerarchia. Nel 1925, nella successiva grande assemblea fu discusso in modo più dettagliato e i membri decisero:
+Primo, che da parte dell’intera Gerarchia planetaria si sarebbe compiuto uno sforzo concorde fino al 1950, per espandere la coscienza dell’umanità e istituire una specie di processo forzato... Si decise di eliminare alcune zone di dubbio.
+In secondo luogo, si determinò di collegare in modo più stretto e soggettivo i discepoli anziani, gli aspiranti e gli operatori nel mondo. <span class="mark-point">A tal fine tutti i Maestri posero i Loro gruppi di discepoli in reciproco contatto soggettivo, intuitivo e talvolta telepatico. Nacque così il Nuovo Gruppo dei Servitori del Mondo.</span></div>
+      </div>
+
+      <!-- Pagina 83 -->
+      <div class="orig-page-container">
+        <div class="orig-page-header" onclick="togglePage('p83')">
+          <span class="orig-page-title">Pagina 83 &mdash; Il Settore Politico e la Fratellanza delle Nazioni</span>
+          <span>▼</span>
+        </div>
+        <div id="p83" class="orig-page-content">83 
+I gruppi cristallizzati e settari non risposero, ma in ciascuno di essi, anche i più inerti, vi furono alcuni che risposero al nuovo impulso...
+Sommariamente si può dire che il Piano, nella mente degli organizzatori, fu suddiviso in tre settori:
+
+<span class="mark-point">1. Politico</span>
+Scopo dell’azione predisposta in questo campo furono lo sviluppo e lo stabilirsi di una <span class="mark-point">coscienza internazionale</span>. Ciò secondo la direttrice del potere o della volontà, del governo, ossia del primo raggio. I discepoli e gli aspiranti del campo organizzativo e la massa di idealisti furono inquadrati in questo compito e gli operatori di sesto e settimo raggio chiamati a cooperarvi.
+Si decise inoltre di dimostrare la necessità di una <span class="mark-point">sintesi economica</span>, come parte dell’avvicinamento reciproco delle nazioni, affinché lo spirito messo in evidenza da organizzazioni come la Croce Rossa potesse palesarsi a livello internazionale anche nei rapporti fra le nazioni...
+Si stabilì di dimostrare la necessità di instaurare uno spirito di dipendenza e reciprocità internazionale, affinché i vari paesi fossero costretti a rendersi conto politicamente che l’isolamento, la separatività e l’egoismo nazionale devono scomparire...
+L’obiettivo principale fu di instaurare uno stato mentale e non qualche impossibile utopia... <span class="mark-point">Istruzioni che dovevano giungere all’orecchio degli statisti dei vari paesi e per loro mezzo risvegliare lentamente e progressivamente le masse al vero significato della Fratellanza.</span></div>
+      </div>
+
+      <!-- Pagina 84 -->
+      <div class="orig-page-container">
+        <div class="orig-page-header" onclick="togglePage('p84')">
+          <span class="orig-page-title">Pagina 84 &mdash; Disamina Geopolitica e il Settore Religioso</span>
+          <span>▼</span>
+        </div>
+        <div id="p84" class="orig-page-content">84 
+In Russia è la dittatura del proletariato... pure contiene grandi ideali: sopperire alle necessità di tutti, la bellezza del servizio reciproco, la divinità insita nel lavoro costruttivo.
+In Germania è la dittatura della supremazia razziale... pure, <span class="mark-point">l’ideale del superuomo è un vero ideale e deve essere presentato al mondo. Temporaneamente si è dimenticato che il superuomo è la meta di tutti e che asiatici, nordici, ebrei, gentili, americani, africani sono figli di un solo Padre, nutriti dalla stessa sorgente di Vita e salvati dal medesimo divino principio cristico.</span>
+In America si è affermata la dittatura degli affaristi organizzati...
+Coloro che danno origine ai vari moti nazionali sono sensibili alle grandi idee riversate dalle Menti dietro le scene, ma poiché difettano di sintesi interiore, quei principi sono grandemente deformati e applicati in modo egoistico e separativo.
+
+<span class="mark-point">2. Religioso</span>
+La meta in questo campo è di stabilire una comprensione universale della natura della realtà, e promuovere lo sviluppo della coscienza spirituale. Oggi nel mondo coloro che credono fondamentalmente nella fratellanza delle religioni sono molto numerosi...</div>
+      </div>
+
+      <!-- Pagina 85 -->
+      <div class="orig-page-container">
+        <div class="orig-page-header" onclick="togglePage('p85')">
+          <span class="orig-page-title">Pagina 85 &mdash; Fede Mondiale, il 2025 e il Settore Scientifico</span>
+          <span>▼</span>
+        </div>
+        <div id="p85" class="orig-page-content">85 
+Il successo ottenuto nell’abbattere vecchie barriere è in gran parte dovuto agli eruditi orientalisti di Francia, Germania e Inghilterra... hanno collegato le verità spirituali di ogni tempo con la presentazione cristiana.
+<span class="mark-point">Presto la struttura interiore di una fede mondiale sarà talmente ben definita nella mente di migliaia di uomini, che quella esteriore finirà per apparire prima della fine del secolo.
+La struttura interiore della Federazione mondiale delle Nazioni sarà altrettanto ben organizzata e quella esteriore prenderà rapidamente forma entro il 2025.</span>
+
+<span class="mark-point">3. Scientifico</span>
+Coloro che operano in questo campo si sono prefissi la meta di espandere la coscienza dell’uomo al punto che si produca una sintesi fra il tangibile e l’intangibile...
+I sette gruppi d’azione sono dunque organizzati nel modo che segue:
+1. Settore della politica: Primo, sesto e settimo raggio.
+2. Settore della religione: Secondo e quarto raggio.
+3. Settore dell’educazione/scienza: Terzo e quinto raggio.</div>
+      </div>
+
+      <!-- Pagina 86 -->
+      <div class="orig-page-container">
+        <div class="orig-page-header" onclick="togglePage('p86')">
+          <span class="orig-page-title">Pagina 86 &mdash; La Nuova Era e il Problema delle Idee</span>
+          <span>▼</span>
+        </div>
+        <div id="p86" class="orig-page-content">86 
+Inaugurerà una nuova era contrassegnata dall’attitudine alla sintesi di gruppo e alla cooperazione, e da nuove facoltà che riorienteranno la mente: <span class="mark-point">essa potrà volgersi all’esterno, al mondo delle forme, e all’interno, al mondo della sintesi e dello spirito.</span>
+
+<span class="mark-point">IL PROBLEMA DELLE IDEE</span>
+Il primo problema del governo del mondo è l’uso assennato delle idee. Entra qui in gioco il potere della parola... Nelle masse, tramite la radio, grandi idee vengono incessantemente ripetute fino a frastornare il pubblico: le teorie della dittatura, comunismo, nazismo, fascismo, marxismo e gli ideali democratici...
+In tutto questo gioco d'idee la razza sta sviluppando la capacità di pensare, di scegliere e di costruire...
+In seguito educheranno con gran cura i loro <span class="mark-point">Osservatori e Comunicatori</span>.</div>
+      </div>
+
+      <!-- Pagina 87 -->
+      <div class="orig-page-container">
+        <div class="orig-page-header" onclick="togglePage('p87')">
+          <span class="orig-page-title">Pagina 87 &mdash; Gli Osservatori, il Problema di Dio e l'Immanenza</span>
+          <span>▼</span>
+        </div>
+        <div id="p87" class="orig-page-content">87 
+Questi saranno uomini e donne la cui intuizione si sarà risvegliata sotto il pressante impulso dell’intelletto... uomini di buona volontà, di grande apertura mentale, liberi da ambizioni e orgoglio, animati dall’amore per l’umanità. Uomini siffatti sono spirituali.
+
+<span class="mark-point">IL PROBLEMA DI DIO</span>
+Nel mondo della religione il fatto di Dio sarà dimostrato e avrà termine l’incertezza. Non sarà un Dio di una nazione o razza, né un Dio cristiano, indù o buddista... bensì la Divinità della vita essenziale, somma di tutte le energie.
+<span class="mark-point">«Quando il tuo occhio sarà singolo, tutto il tuo corpo sarà pieno di luce». In quella luce vedremo la luce, e dunque Dio. Le tre parole: elettricità, luce e vita esprimono la divinità e la loro sintesi è Dio.</span> Il secondo aspetto della luce sta per essere rivelato grazie alla giusta comprensione dei fenomeni elettrici.
+
+<span class="mark-point">IL PROBLEMA DELL’IMMORTALITÀ</span>
+La terza area di dubbio sarà eliminata fra non molto grazie all’indagine scientifica... il fatto della persistenza e dell’eternità dell’esistenza passerà dal campo del dubbio al regno della certezza.
+<span class="mark-point">Nell’occhio fisico umano si svilupperà una facoltà che svelerà il corpo eterico, il «doppio»... e gli uomini saranno visti in quel corpo dopo che il corpo fisico sia stato abbandonato.</span></div>
+      </div>
+
+      <!-- Pagina 88 -->
+      <div class="orig-page-container">
+        <div class="orig-page-header" onclick="togglePage('p88')">
+          <span class="orig-page-title">Pagina 88 &mdash; Prove dell'Immortalità, l'Atomo e la Centrale di Potere</span>
+          <span>▼</span>
+        </div>
+        <div id="p88" class="orig-page-content">88 
+L’immortalità sarà comprovata anche da una scoperta nel campo della fotografia e tramite la radio... La morte perderà i suoi poteri e questa paura cesserà.
+<span class="mark-point">Lo sprigionamento della potenza racchiusa nell’atomo darà l’avvio ad un’era rivoluzionaria e la scienza opererà con energie e forme di vita finora sconosciute.</span>
+
+<span class="mark-point">L’umanità è designata ad agire come una centrale di potere attraverso la quale certe energie divine possano fluire nelle varie forme di vita subumana.</span> Questo porrà fine alle condizioni di rovina e di morte che oggi prevalgono ovunque. Gli uomini connetteranno le manifestazioni superiori della Vita a quelle inferiori quando avranno collegato in se stessi l’aspetto superiore e quello inferiore.</div>
+      </div>
+
+      <!-- Pagina 89 -->
+      <div class="orig-page-container">
+        <div class="orig-page-header" onclick="togglePage('p89')">
+          <span class="orig-page-title">Pagina 89 &mdash; I Centri Planetari, l'Innocuità e il Dovere del Dono</span>
+          <span>▼</span>
+        </div>
+        <div id="p89" class="orig-page-content">89 
+<span class="mark-point">Londra, New York e Ginevra sono i tre centri della loro attività e a Darjeeling e a Tokio si stanno radunando le forze.</span>
+Esorto tutti i pensatori ad abbandonare il loro settarismo e a pensare in termini di un’unica famiglia, una sola vita, una sola umanità.
+<span class="mark-point">Vi chiedo di suggellare le labbra, che non profferiscano parole di odio o di critica... divulgate il culto dell’unità, dell’amore e dell’innocuità. Schieratevi con coloro che hanno eliminato la parola «anti» dal loro vocabolario. State con coloro che erigono il nuovo ordine che si basa sull’amore.</span>
+Date l’apporto del vostro pensiero e del vostro denaro... Rinunciate alle ore di svago perché altri possano servire il Piano; date il vostro denaro al limite delle vostre possibilità.</div>
+      </div>
+
+      <!-- Pagina 90 -->
+      <div class="orig-page-container">
+        <div class="orig-page-header" onclick="togglePage('p90')">
+          <span class="orig-page-title">Pagina 90 &mdash; Contatto con l'Anima e la Legge dei Cicli</span>
+          <span>▼</span>
+        </div>
+        <div id="p90" class="orig-page-content">90 
+Non lasciatevi convincere che la distruzione è necessaria: il ciclo di distruzione è finito, ora i costruttori devono lavorare alacremente.
+<span class="mark-point">Soprattutto vi esorto a una vita più profonda e vi imploro di rafforzare il contatto con la vostra anima... Chi non è preparato sarà accecato dalla luce che ne scaturirà e verrà spazzato via dal vivente soffio di Dio.</span>
+
+<span class="mark-point">La Legge dei Cicli e le apparenti contraddizioni</span>
+In un dato periodo un certo raggio può essere manifesto, eppure nello stesso tempo il ciclo maggiore può essere retto da un raggio diverso. Ad esempio ora sta sorgendo il settimo raggio e il sesto tramonta; <span class="mark-point">eppure il sesto raggio regge un ciclo maggiore e il suo influsso non cesserà per altri 21.000 anni. Nello stesso tempo, il sesto raggio è il sesto sottoraggio del quarto raggio, che sarà operante per altri 40.000 anni.</span>
+Se il lettore si attiene al profilo generale del Piano solare ed elimina i particolari, potrà collaborarvi con la dovuta intelligenza.</div>
+      </div>
+    </div>
+
+    <!-- TAB 7: MEDITAZIONE & RIFLESSIONE -->
+    <div id="meditazione" class="tab-content">
+      <div class="section-head">
+        <h2>Spunti per la Meditazione Quotidiana</h2>
+        <p>Quesiti applicativi desunti dalla lettura delle pagine 82-90 per orientare la riflessione e l'azione nel quotidiano.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-badge" style="background: var(--gold-glow); color: var(--gold-light);">Contemplazione 1</div>
+          <h3 class="card-title">Il Codice dell'Innocuità</h3>
+          <p class="card-body">
+            In quale misura la parola "anti-" o l'attitudine alla critica e al biasimo sono ancora presenti nelle mie conversazioni e nei miei pensieri? Come posso oggi sostituire la reazione polemica con l'opera costruttiva del costruttore?
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-badge" style="background: var(--gold-glow); color: var(--gold-light);">Contemplazione 2</div>
+          <h3 class="card-title">La Mente a Due Direzioni</h3>
+          <p class="card-body">
+            Riesco durante la giornata lavorativa a mantenere la mente bifocale, cioè capace di agire con efficienza nelle forme esteriori senza mai perdere il contatto interiore con il mondo dell'Anima e del Piano divino?
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-badge" style="background: var(--gold-glow); color: var(--gold-light);">Contemplazione 3</div>
+          <h3 class="card-title">L'Umanità come Centrale di Luce</h3>
+          <p class="card-body">
+            In che modo la mia energia quotidiana benedice e nobilita i regni inferiori (l'ambiente, la materia fisica, gli animali, le piante), fungendo da trasmettitore delle energie divine di Amore e Saggezza?
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Trattato dei Sette Raggi &bull; Studio Approfondito Pagine 82-90 &bull; Generato per lo studio meditativo personale</p>
+    <p style="margin-top: 6px; font-size: 0.78rem;">«Quando il tuo occhio sarà singolo, tutto il tuo corpo sarà pieno di luce» &mdash; Luca 11,34</p>
+  </footer>
+
+  <script>
+    // Tab switching
+    function openTab(evt, tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      const target = document.getElementById(tabId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      const activeBtn = evt?.currentTarget || window.event?.currentTarget;
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+      }
+    }
+
+    // Toggle collapsible pages in original text viewer
+    function togglePage(pageId) {
+      const el = document.getElementById(pageId);
+      if (!el) return;
+      if (el.style.display === 'none' || el.style.display === '') {
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    }
+
+    // Theme toggle (Dark / Light)
+    const themeBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeLabel = document.getElementById('themeLabel');
+
+    themeBtn.addEventListener('click', () => {
+      const current = document.body.getAttribute('data-theme');
+      if (current === 'dark') {
+        document.body.setAttribute('data-theme', 'light');
+        themeIcon.textContent = '🌙';
+        themeLabel.textContent = 'Ombra';
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '☀️';
+        themeLabel.textContent = 'Luce';
+      }
+    });
+  </script>
+</body>
+</html>
